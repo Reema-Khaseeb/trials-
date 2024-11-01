@@ -29,10 +29,10 @@ def _health_check() -> Dict:
 
 @app.post("/predict/")
 def _predicted_price(sample: Sample) -> Dict:
-    sample = [vars(sample)]
+    sample = [sample.dict()]
     sample_dataframe = pd.DataFrame(sample)
-    predection = model_pipeline.predict(sample_dataframe)[0]
+    prediction = model_pipeline.predict(sample_dataframe)[0]
     response = {
-        'prediction': predection
+        'prediction': prediction
     }
     return response
