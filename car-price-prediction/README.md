@@ -17,7 +17,6 @@ To understand the factors on which the pricing of cars depends. Specifically, th
 
 I'll utilize a large data set scrapped with different types of cars across the Palestinian market.
 
-
 ## Bussiness Goal
 The management aims to model car prices using the provided independent variables. This model will help:
 - Understand price variations with respect to the variables.
