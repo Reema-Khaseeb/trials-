@@ -1,4 +1,13 @@
-# car-price-prediction
+# Car Price Prediction
+
+## Table of Contents
+1. [Problem Statement](#problem-statement)
+2. [Business Goal](#business-goal)
+3. [Features](#features)
+4. [Technologies Used](#technologies-used)
+5. [Getting Started](#getting-started)
+6. [API Endpoints](#api-endpoints)
+7. [Docker Hub Repository](#docker-hub-repository)
 
 ## Problem Statement
 To understand the factors on which the pricing of cars depends. Specifically, they want to understand the factors affecting the pricing of cars in the Palestinian market. The company wants to know the following:
@@ -10,24 +19,28 @@ I'll utilize a large data set scrapped with different types of cars across the P
 
 
 ## Bussiness Goal
-We are required to model the price of cars with the available independent variables. It will be used by the management to understand how exactly the prices vary with the independent variables. They can accordingly manipulate the design of the cars, the business strategy etc. to meet certain price levels. Further, the model will be a good way for management to understand the pricing dynamics of a new market.
-
+The management aims to model car prices using the provided independent variables. This model will help:
+- Understand price variations with respect to the variables.
+- Enable modifying car designs and strategies to align with price levels.
+- Gain insights into the pricing dynamics of a new market.
 
 ## Features
-1. Data cleaning
-2. Exploratory Data Analysis
-3. Feature Engineering
-4. Feature selection
-5. Data Modelling and evaluation
-6. Deployment: Easy-to-use API endpoints for health checks and price prediction.
+1. Data cleaning.
+2. Exploratory Data Analysis (EDA).
+3. Feature engineering.
+4. Feature selection.
+5. Data modeling and evaluation.
+6. Deployment: API endpoints:
+   - Health check.
+   - Car price prediction.
 7. Containerized for seamless deployment using Docker.
 
-## Getting Started
-
-### Technologies Used
+## Technologies Used
 - Python
 - FastAPI
 - Docker
+
+## Getting Started
 
 ### Clone the Repository
 
@@ -39,45 +52,56 @@ cd car-price-prediction
 The application will be accessible at http://localhost:8000.
 
 #### API Endpoints
-1. Health Check
-Endpoint: `GET /`
-Description: Check if the API is running.
+1. **Health Check Endpoint**  
+   - **Method**: `GET`  
+   - **Endpoint**: `/`  
+   - **Description**: Check if the API is running.
 
-2. Predict Car Price
-Endpoint: `POST /predict/`
-Description: Provide car data as input to get a predicted price.
-Example payload:
-```
-{
-    "car_color": "أبيض",
-    "fuel_type": "بنزين",
-    "car_type": "خصوصي",
-    "car_license": "فلسطينية",
-    "gear_type": "اوتوماتيك",
-    "windows": "الكتروني",
-    "motor_power": 2000,
-    "speedometer": 50000,
-    "passengers_number": 5,
-    "payment_method": "نقدا فقط",
-    "car_state": "للبيع فقط",
-    "ex_owners": 1,
-    "additions": "مُكيّف, إغلاق مركزي, جهاز إنذار, مسجل CD, فتحة سقف, جنطات مغنيسيوم, فرش جلد, وسادة حماية هوائية"
-}
-```
+2. **Predict Car Price Endpoint**  
+   - **Method**: `POST`  
+   - **Endpoint**: `/predict/`
+   - **Description**: Provide car data as input to get a predicted price.  
+     **Example Payload**:
 
-Response:
-```
-{
-    "prediction": 70038.61989474502
-}
-```
+        ```json
+        {
+            "car_color": "أبيض",
+            "fuel_type": "بنزين",
+            "car_type": "خصوصي",
+            "car_license": "فلسطينية",
+            "gear_type": "اوتوماتيك",
+            "windows": "الكتروني",
+            "motor_power": 2000,
+            "speedometer": 50000,
+            "passengers_number": 5,
+            "payment_method": "نقدا فقط",
+            "car_state": "للبيع فقط",
+            "ex_owners": 1,
+            "additions": "مُكيّف, إغلاق مركزي, جهاز إنذار, مسجل CD, فتحة سقف, جنطات مغنيسيوم, فرش جلد, وسادة حماية هوائية"
+        }
+        ```
+
+        **Response**:
+        ```json
+        {
+            "prediction": 70038.61989474502
+        }
+        ```
 
 
 ## Docker Hub Repository
 The Docker image is available on Docker Hub:
 [Car Price Prediction Image](https://hub.docker.com/repository/docker/reema21/car-price-prediction)
 
-To pull the image:
-```
-docker pull reema21/car-price-prediction:latest
-```
+* Pull the image:
+    ```
+    docker pull reema21/car-price-prediction:latest
+    ```
+
+* Run the Image
+    ```bash
+    docker run -d -p 8000:8000 reema21/car-price-prediction:latest
+    ```
+
+After running the container, the application will be accessible at:
+http://localhost:8000
